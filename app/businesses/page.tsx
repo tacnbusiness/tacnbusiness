@@ -1,6 +1,6 @@
 // pages/businesses.tsx
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '../../lib/supabaseClient';
 
 interface Business {
   id: number;

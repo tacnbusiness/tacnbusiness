@@ -1,7 +1,7 @@
 // pages/businesses/[id].tsx
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
+import { supabase } from '../../../lib/supabaseClient';
 
 export default function BusinessDetail() {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
-import { withAuth } from '../../utils/withAuth';
+import { supabase } from '../../../lib/supabaseClient';
+import { withAuth } from '../../../utils/withAuth';
 
 function EditBusiness() {
   const router = useRouter();

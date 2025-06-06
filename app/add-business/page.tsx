@@ -1,6 +1,8 @@
+'use client';
+
 import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { supabase } from '../lib/supabaseClient';
+import { useRouter } from 'next/navigation';
+import { supabase } from '../../lib/supabaseClient';
 
 export default function AddBusiness() {
   const router = useRouter();

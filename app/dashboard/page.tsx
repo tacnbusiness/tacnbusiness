@@ -1,8 +1,10 @@
-// pages/dashboard.tsx
+// app/dashboard/page.tsx
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'; // Changed from next/router to next/navigation
 import Link from 'next/link';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '../../lib/supabaseClient';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -47,7 +49,6 @@ export default function Dashboard() {
           <Link href="/my-businesses" className="text-blue-600 hover:underline">
             Manage My Businesses
           </Link>
-
         </div>
 
         <button
