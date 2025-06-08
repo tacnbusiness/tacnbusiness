@@ -1,4 +1,3 @@
-// components/Header.tsx
 'use client';
 
 import { useState } from 'react';
@@ -8,72 +7,44 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-        <Link href="/" className="text-xl font-bold text-blue-600">
-          tacnbusiness.com
+    <header className="bg-blue-600 shadow fixed w-full top-0 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="text-white text-xl sm:text-2xl font-bold tracking-wide">
+          tacnbusiness
         </Link>
 
-        <nav className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-blue-700">
-            Home
-          </Link>
-          <Link href="/list-business" className="hover:text-blue-700">
-            List Business
-          </Link>
-          <Link href="/pricing" className="hover:text-blue-700">
-            Pricing
-          </Link>
-          <Link href="/profile" className="hover:text-blue-700">
-            Profile
-          </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-white">
+          <Link href="/" className="hover:underline">Home</Link>
+          <Link href="/list-business" className="hover:underline">List Business</Link>
+          <Link href="/pricing" className="hover:underline">Pricing</Link>
+          <Link href="/profile" className="hover:underline">Profile</Link>
         </nav>
 
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label="Toggle Menu"
         >
-          <svg
-            className="h-6 w-6 text-gray-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {menuOpen && (
-        <nav className="md:hidden bg-white border-t border-gray-200 px-4 py-2 space-y-1 shadow-lg">
-          <Link href="/" className="block py-2 hover:text-blue-700">
-            Home
-          </Link>
-          <Link href="/list-business" className="block py-2 hover:text-blue-700">
-            List Business
-          </Link>
-          <Link href="/pricing" className="block py-2 hover:text-blue-700">
-            Pricing
-          </Link>
-          <Link href="/profile" className="block py-2 hover:text-blue-700">
-            Profile
-          </Link>
+        <nav className="md:hidden px-4 py-3 bg-blue-600 shadow-md space-y-2 text-sm text-white">
+          <Link href="/" className="block hover:underline" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/list-business" className="block hover:underline" onClick={() => setMenuOpen(false)}>List Business</Link>
+          <Link href="/pricing" className="block hover:underline" onClick={() => setMenuOpen(false)}>Pricing</Link>
+          <Link href="/profile" className="block hover:underline" onClick={() => setMenuOpen(false)}>Profile</Link>
         </nav>
       )}
     </header>
