@@ -22,7 +22,7 @@ export default function Header() {
           <Link href="/profile" className="hover:underline">Profile</Link>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Hamburger Toggle */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -38,35 +38,23 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Overlay */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40"
-          onClick={() => setMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Mobile Navigation */}
-      <nav
-        className={`fixed top-14 right-0 h-[calc(100vh-56px)] w-64 bg-blue-600 shadow-md text-sm text-white transform transition-transform duration-300 ease-in-out z-50
-          ${menuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'}`}
+      {/* Mobile Navigation - slide from right */}
+      <div
+        className={`md:hidden fixed top-14 right-0 w-48 h-screen bg-blue-600 shadow-md text-white transform transition-transform duration-300 ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        onClick={() => setMenuOpen(false)} // Clicking outside the menu
       >
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="p-4 text-white focus:outline-none text-2xl font-bold"
-          aria-label="Close Menu"
+        <div
+          className="space-y-4 p-4 text-sm"
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
-          &times;
-        </button>
-
-        <div className="flex flex-col px-4 space-y-2">
           <Link href="/" className="block hover:underline" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/list-business" className="block hover:underline" onClick={() => setMenuOpen(false)}>List Business</Link>
           <Link href="/pricing" className="block hover:underline" onClick={() => setMenuOpen(false)}>Pricing</Link>
           <Link href="/profile" className="block hover:underline" onClick={() => setMenuOpen(false)}>Profile</Link>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
