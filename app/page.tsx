@@ -2,7 +2,7 @@ import CategoriesGrid from '../components/CategoriesGrid';
 
 export default function HomePage() {
   return (
-    <section className="text-center py-20">
+    <section className="text-center py-20 pt-[56px]"> {/* add pt-[56px] to push content down */}
       <div className="max-w-3xl mx-auto px-4">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           Discover Trusted Businesses Near You
@@ -27,3 +27,4 @@ export default function HomePage() {
     </section>
   );
 }
+

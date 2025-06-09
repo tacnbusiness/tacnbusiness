@@ -38,15 +38,35 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Overlay */}
       {menuOpen && (
-        <nav className="md:hidden px-4 py-3 bg-blue-600 shadow-md space-y-2 text-sm text-white">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Navigation */}
+      <nav
+        className={`fixed top-14 right-0 h-[calc(100vh-56px)] w-64 bg-blue-600 shadow-md text-sm text-white transform transition-transform duration-300 ease-in-out z-50
+          ${menuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'}`}
+      >
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="p-4 text-white focus:outline-none text-2xl font-bold"
+          aria-label="Close Menu"
+        >
+          &times;
+        </button>
+
+        <div className="flex flex-col px-4 space-y-2">
           <Link href="/" className="block hover:underline" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/list-business" className="block hover:underline" onClick={() => setMenuOpen(false)}>List Business</Link>
           <Link href="/pricing" className="block hover:underline" onClick={() => setMenuOpen(false)}>Pricing</Link>
           <Link href="/profile" className="block hover:underline" onClick={() => setMenuOpen(false)}>Profile</Link>
-        </nav>
-      )}
+        </div>
+      </nav>
     </header>
   );
 }

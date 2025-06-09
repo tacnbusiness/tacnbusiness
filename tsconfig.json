@@ -16,7 +16,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "preserve", // <-- change this line
     "incremental": true,
     "baseUrl": ".",
     "paths": {
@@ -34,8 +34,9 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
-, "tailwind.config.js"  ],
+    ".next/types/**/*.ts",
+    "tailwind.config.js"
+  ],
   "exclude": [
     "node_modules"
   ]

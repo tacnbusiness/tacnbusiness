@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* Territories & Contact */}
         <div>
-          <h3 className="font-semibold mb-2">Church Tags</h3>
+          <h3 className="font-semibold mb-2">Nigerian Territories</h3>
           <ul className="space-y-1 text-sm">
             <li>LAWNA Territory</li>
             <li>Igboland Territory</li>
